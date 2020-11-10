@@ -6,7 +6,8 @@ import Weapons from "./Weapons"
 import Outcome from "./Outcome"
 import Confetti from "./Confetti"
 import ActionMessage from "./ActionMessage"
-import Modal from "./Modal"
+import UserPlayer from "./UserPlayer"
+import ComputerPlayer from "./ComputerPlayer"
 
 export {
   GameMode,
@@ -17,5 +18,6 @@ export {
   Outcome,
   Confetti,
   ActionMessage,
-  Modal,
+  UserPlayer,
+  ComputerPlayer,
 }

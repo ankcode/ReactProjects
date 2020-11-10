@@ -1,3 +1,3 @@
 import Game from "./Game"
-
-export { Game }
+import Home from "./Home"
+export { Game, Home }

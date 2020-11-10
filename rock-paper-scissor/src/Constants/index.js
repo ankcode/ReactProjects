@@ -3,3 +3,5 @@ export const GAME_RULES = {
   paper: { rock: "covers" },
   rock: { scissors: "crushes" },
 }
+
+export const GAME_MODES = ["You", "Computer"]

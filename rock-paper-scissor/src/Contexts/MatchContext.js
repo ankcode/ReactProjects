@@ -1,37 +1,64 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useState, useEffect } from "react"
 
 export const MatchContext = createContext()
 
 export const MatchProvider = (props) => {
   const [matchState, setMatchState] = useState({
-    userScore: 0,
-    computerScore: 0,
+    playerScore: 0,
+    opponentScore: 0,
     result: "",
     mode: "",
   })
 
-  const resetScore = () => {
-    setMatchState({
-      userScore: 0,
-      computerScore: 0,
-      result: "",
-      mode: "user",
-    })
-    localStorage.removeItem("playerScore")
-    localStorage.removeItem("computerScore")
-  }
+  useEffect(() => {
+    const mode = localStorage.getItem("mode")
+    const playerScore = localStorage.getItem("playerScore")
+    const opponentScore = localStorage.getItem("opponentScore")
 
-  const updateScore = (userScore, computerScore, result = "") => {
+    if (mode) {
+      setMatchState((prevState) => {
+        return {
+          ...prevState,
+          mode,
+        }
+      })
+    }
+    if (playerScore && opponentScore) {
+      setMatchState((prevState) => {
+        return {
+          ...prevState,
+          playerScore: parseInt(playerScore),
+          opponentScore: parseInt(opponentScore),
+          result: "",
+        }
+      })
+    }
+  }, [])
+
+  const resetScore = () => {
     setMatchState((prevState) => {
       return {
         ...prevState,
-        userScore,
-        computerScore,
+        playerScore: 0,
+        opponentScore: 0,
+        result: "",
+      }
+    })
+    localStorage.removeItem("playerScore")
+    localStorage.removeItem("opponentScore")
+  }
+
+  const updateScore = (playerScore, opponentScore, result = "") => {
+    setMatchState((prevState) => {
+      return {
+        ...prevState,
+        playerScore,
+        opponentScore,
         result,
       }
     })
-    localStorage.setItem("playerScore", userScore)
-    localStorage.setItem("computerScore", computerScore)
+    localStorage.setItem("playerScore", playerScore)
+    localStorage.setItem("opponentScore", opponentScore)
   }
 
   const updateMode = (mode) => {
@@ -41,6 +68,7 @@ export const MatchProvider = (props) => {
         mode,
       }
     })
+    localStorage.setItem("mode", mode)
   }
 
   return (

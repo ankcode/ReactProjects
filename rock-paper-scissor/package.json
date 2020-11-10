@@ -7,11 +7,11 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "enzyme-adapter-react-16": "^1.15.5",
+    "font-awesome": "4.7.0",
     "raf": "^3.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-dom-confetti": "^0.2.0",
-    "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"

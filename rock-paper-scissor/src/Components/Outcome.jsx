@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react"
 
-export default function Outcome({status}) {
-    return (
+export default function Outcome({ status }) {
+  return (
     <div>
-        <h2>{`${status}`}</h2>
-      </div>
-    )
+      <h2>{status}</h2>
+    </div>
+  )
 }
